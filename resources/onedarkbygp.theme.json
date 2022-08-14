@@ -28,7 +28,7 @@
         "os.windows": "selectionForeground",
         "os.mac": "selectionForeground"
       },
-      "selectionInactiveBackground": "#4066a6",
+      "selectionInactiveBackground": "#4D5864",
       "selectionBackgroundInactive": "#2c313a",
       "disabledBackground": "backgroundColor",
       "inactiveBackground": "backgroundColor",
@@ -103,7 +103,7 @@
     "ComboPopup.border": "1,1,1,1,2d3137",
     "CompletionPopup": {
       "background": "#3d424b",
-      "selectionBackground": "#5380ce",
+      "selectionBackground": "#4D5864",
       "matchForeground": "#ff9f39"
     },
     "Component": {
@@ -119,7 +119,8 @@
     "DefaultTabs": {
       "underlineColor": "accentColor",
       "inactiveUnderlineColor": "#4269b9",
-      "hoverBackground": "#323844"
+      "hoverBackground": "#323844",
+      "background": "#72787E"
     },
     "DragAndDrop": {
       "areaForeground": "#abb2bf",
@@ -130,13 +131,14 @@
       "background": "#282c34",
       "foreground": "#abb2bf",
       "SearchField": {
-        "background": "#282c34"
+        "background": "#3F4751"
       },
       "shortcutForeground": "accentColor"
     },
     "EditorPane.inactiveBackground": "#282c34",
     "EditorTabs": {
-      "underlinedTabBackground": "#3d424b"
+      "underlinedTabBackground": "#3d424b",
+      "background": "#72787E"
     },
     "FileColor": {
       "Yellow": "#3d3026",
@@ -268,7 +270,9 @@
       "startBackground": "accentColor",
       "endBackground": "accentColor"
     },
-    "SidePanel.background": "backgroundColor",
+    "SidePanel": {
+      "background": "backgroundColor"
+    },
     "SpeedSearch": {
       "foreground": "#abb2bf",
       "borderColor": "#3d424b",
@@ -318,7 +322,7 @@
       "background": "#3d424b"
     },
     "ToolWindow": {
-      "background": "backgroundColor",
+      "background": "#3d4752",
       "Button": {
         "hoverBackground": "#323844",
         "selectedBackground": "#3d424b",
@@ -326,7 +330,7 @@
       },
       "Header": {
         "background": "#414855",
-        "inactiveBackground": "#444e6b"
+        "inactiveBackground": "#4D5864"
       },
       "HeaderTab": {
         "hoverBackground": "#323844",
