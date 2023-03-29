@@ -47,27 +47,6 @@
       "pressedBackground": "#333841",
       "pressedBorderColor": "#333841"
     },
-    "BookmarkIcon.background": "#d9a343",
-    "BookmarkMnemonicAssigned": {
-      "foreground": "#ffffff",
-      "background": "#4d78cc",
-      "borderColor": "#4d78cc"
-    },
-    "BookmarkMnemonicAvailable": {
-      "borderColor": "borderColor",
-      "foreground": "#a0a7b4",
-      "background": "#3d424b"
-    },
-    "BookmarkMnemonicCurrent": {
-      "borderColor": "accentColor",
-      "foreground": "#a0a7b4",
-      "background": "#323844"
-    },
-    "BookmarkMnemonicIcon": {
-      "foreground": "#a0a7b4",
-      "background": "#3d424b",
-      "borderColor": "accentColor"
-    },
     "Button": {
       "disabledBorderColor": "#4D5864",
       "disabledText": "#4D5864",
@@ -104,7 +83,6 @@
     },
     "ComboPopup.border": "1,1,1,1,2d3137",
     "CompletionPopup": {
-      "background": "#3d424b",
       "selectionBackground": "#4D5864",
       "matchForeground": "#ff9f39"
     },
@@ -126,8 +104,7 @@
     },
     "DragAndDrop": {
       "areaForeground": "#abb2bf",
-      "areaBackground": "#323844",
-      "areaBorderColor": "#333841"
+      "areaBackground": "#323844"
     },
     "Editor": {
       "background": "#282c34",
@@ -162,11 +139,6 @@
     "Label": {
       "infoForeground": "infoForeground",
       "successForeground": "#89ca78"
-    },
-    "Lesson": {
-      "Tooltip.background": "#3d424b",
-      "Tooltip.spanBackground": "accentColor",
-      "Tooltip.foreground": "#ffffff"
     },
     "Link": {
       "activeForeground": "#6494ed",
@@ -227,8 +199,7 @@
         "updateBorderColor": "accentColor"
       },
       "SearchField": {
-        "background": "#4F5863",
-        "borderColor": "#1b1d21"
+        "background": "#4F5863"
       },
       "SectionHeader.background": "#414855",
       "Tab": {
@@ -284,7 +255,6 @@
       "errorForeground": "#e06c75"
     },
     "Settings.Spotlight.borderColor": "accentColor",
-    "StatusBar.background": "baseBackground",
     "TabbedPane": {
       "underlineColor": "accentColor",
       "contentAreaColor": "#323844",
@@ -339,7 +309,6 @@
       "HeaderTab": {
         "hoverBackground": "#323844",
         "hoverInactiveBackground": "#3d424b",
-        "selectedBackground": "#323844",
         "selectedInactiveBackground": "#3d424b"
       }
     },
@@ -350,7 +319,6 @@
     "Tree": {
       "selectionBackground": "#4d78cc",
       "modifiedItemForeground": "accentColor",
-      "selectionInactiveForeground": "foregroundColor",
       "rowHeight": 20.0
     },
     "ValidationTooltip": {
