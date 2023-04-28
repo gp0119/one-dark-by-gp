@@ -118,7 +118,7 @@
     "EditorPane.inactiveBackground": "#282c34",
     "EditorTabs": {
       "underlinedTabBackground": "#3d424b",
-      "background": "#72787E",
+      "background": "#2e3440",
       "borderColor": "#434852"
     },
     "FileColor": {
