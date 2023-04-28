@@ -119,7 +119,8 @@
     "EditorTabs": {
       "underlinedTabBackground": "#3d424b",
       "background": "#2e3440",
-      "borderColor": "#434852"
+      "borderColor": "#434852",
+      "inactiveUnderlineColor": "#C9AE76"
     },
     "FileColor": {
       "Yellow": "#3d3026",
