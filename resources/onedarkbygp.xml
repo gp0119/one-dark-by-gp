@@ -11,6 +11,7 @@
   <option name="CONSOLE_FONT_SIZE" value="15" />
   <option name="CONSOLE_LINE_SPACING" value="1.3" />
   <colors>
+    <option name="EDITOR_BACKGROUND_COLOR" value="282c34" />
     <option name="ADDED_LINES_COLOR" value="98c379" />
     <option name="ANNOTATIONS_COLOR" value="fffbf7" />
     <option name="CARET_COLOR" value="557ecf" />

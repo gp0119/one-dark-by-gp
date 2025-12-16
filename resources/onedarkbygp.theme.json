@@ -10,10 +10,11 @@
     "infoForeground": "#7e8491",
     "foregroundColor": "#abb2bf",
     "notificationBackground": "#3d424b",
-    "selectionBackground": "#323844",
-    "selectionForeground": "#d7dae0"
+    "selectionBackground": "#ffffff",
+    "selectionForeground": "#ffffff"
   },
   "ui": {
+    "Islands": 1,
     "*": {
       "background": "backgroundColor",
       "foreground": "#abb2bf",
@@ -72,13 +73,13 @@
       "ContrastBorderColor": "#333841"
     },
     "ComboBox": {
-      "nonEditableBackground": "#333841",
-      "background": "#333841",
+      "nonEditableBackground": "#363e47",
+      "background": "#363e47",
       "selectionBackground": "#4d78cc",
       "ArrowButton": {
         "iconColor": "#abb2bf",
         "disabledIconColor": "#2c313a",
-        "nonEditableBackground": "#333841"
+        "nonEditableBackground": "#363e47"
       }
     },
     "ComboPopup.border": "1,1,1,1,2d3137",
@@ -211,7 +212,7 @@
     },
     "Popup": {
       "paintBorder": false,
-      "borderColor": "#21252b",
+      "borderColor": "#363e47",
       "Toolbar.borderColor": "#3d424b",
       "Header.activeBackground": "#414855",
       "Header.inactiveBackground": "#2c313a",
