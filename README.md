@@ -2,6 +2,40 @@
 
 JetBrains IDE 主题插件
 
+## 在 WebStorm 中自动预览（macOS）
+
+适用于 macOS 上的 WebStorm 2026.3，需要 Python 3；无须安装额外依赖或 Plugin DevKit。
+
+在项目根目录运行：
+
+```bash
+./preview.command
+```
+
+也可以在 Finder 中双击 `preview.command`。脚本会启动独立的 WebStorm 预览窗口，首次启动时按提示完成授权和项目信任。
+
+要用自己的项目查看主题，先退出已有预览实例，再传入项目目录：
+
+```bash
+./preview.command "/你的项目路径"
+```
+
+不传目录时打开内置示例。预览窗口运行期间也可以通过 **File → Open** 在当前窗口打开其他项目。无论打开哪个项目，自动预览始终监听本仓库 `resources` 下的主题 JSON 和编辑器 XML；指定项目中不会被创建示例文件或资源链接。
+
+在预览窗口的 `resources` 目录中编辑主题 JSON 或编辑器 XML 并保存，约 0.5 秒后界面和代码区一起刷新，无须点击 Preview Theme、重新导入配色或切换窗口。也可以在其他编辑器中修改并保存这些文件，预览窗口同样会更新。`sample.ts` 用于查看语法高亮；`resources` 指向仓库原文件，保存的修改会直接写回本项目。
+
+编辑器背景由 `onedarkbygp.xml` 的 `TEXT` → `BACKGROUND` 控制；界面颜色由 `onedarkbygp.theme.json` 控制。只改 JSON 中的 `editorBackground` 不会修改 XML 中的代码背景。
+
+预览配置、缓存和编译结果都保存在被 Git 忽略的 `.preview/` 中。退出预览 WebStorm（`⌘Q`），或在启动脚本的终端按 `Ctrl+C` 即可停止。JSON/XML 格式错误时保留上次有效预览；修正并保存后会继续更新。详细日志位于 `.preview/log/idea.log`。
+
+脚本自动寻找 `~/Applications/WebStorm.app` 或 `/Applications/WebStorm.app`。安装在其他位置时指定：
+
+```bash
+WEBSTORM_APP="/你的路径/WebStorm.app" ./preview.command
+```
+
+预览加载器直接读取 JSON 和 XML，在内存中关联并应用界面主题和编辑器方案，避免 JAR 资源缓存或编辑器副本遮蔽修改。原主题文件和根目录的发布 JAR 不会被启动脚本改写。预览仅监听上述两个配色文件；修改插件元数据或替换资源文件需要另行打包安装验证。
+
 ## 安装方法
 
 1. 下载 `one-dark-by-gp.jar`
@@ -338,5 +372,10 @@ one-dark-by-gp/
 │   ├── onedarkbygp.theme.json  # UI 主题配置
 │   └── onedarkbygp.xml         # 编辑器配色方案
 ├── one-dark-by-gp.jar          # 打包后的插件
+├── preview.command            # 双击或命令行启动 WebStorm 自动预览
+├── preview.py                 # 编译预览加载器并启动独立实例
+├── preview/
+│   ├── PreviewRuntime.java    # 在预览实例中刷新界面和编辑器配色
+│   └── sample.ts              # 语法高亮示例
 └── README.md
 ```
