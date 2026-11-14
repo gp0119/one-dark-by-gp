@@ -2,7 +2,7 @@
 <idea-plugin url="https://github.com/gp0119/one-dark-by-gp">
     <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
     <id>one-dark-by-gp</id>
-    <version>1.0.3</version>
+    <version>1.0.5</version>
 
     <!-- Public plugin name should be written in Title Case.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
@@ -35,9 +35,9 @@
          Displayed on the Plugin Page and IDE Plugin Manager. Simple HTML elements can be included between <![CDATA[  ]]> tags. -->
     <change-notes><![CDATA[
     <ul>
-        <li>Refined blue-gray backgrounds, foreground contrast, selection colors, and UI accents.</li>
-        <li>Updated the bundled editor color scheme to match the UI palette.</li>
-        <li>Added a new plugin icon and MIT license.</li>
+        <li>Softened the agent prompt focus outline to a muted blue-gray while keeping borders visible.</li>
+        <li>Darkened editor and agent prompt backgrounds and refined send button colors.</li>
+        <li>Removed the project icon override to preserve compatibility with icon plugins.</li>
     </ul>
   ]]></change-notes>
 

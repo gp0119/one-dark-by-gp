@@ -54,7 +54,7 @@ JAR 中包含主题资源和 MIT 许可证；预览加载器及商店截图不�
 
 ## 发布到 JetBrains Marketplace
 
-插件名称为 **One Dark by GP**，当前版本为 **1.0.3**，插件 ID 保持 `one-dark-by-gp`。
+插件名称为 **One Dark by GP**，当前版本为 **1.0.5**，插件 ID 保持 `one-dark-by-gp`。
 英文介绍、更新说明及项目链接位于 `resources/META-INF/plugin.xml`；许可证为 [MIT](LICENSE)。
 
 商店表单使用以下内容：
@@ -79,7 +79,7 @@ JAR 中包含主题资源和 MIT 许可证；预览加载器及商店截图不�
 开发者协议、Vendor 身份及交易者声明由账户持有人按实际情况填写。
 
 后续发布时先更新 `plugin.xml` 中的版本号和更新说明，再重新执行打包命令。
-2026-11-14 使用 Plugin Verifier 1.411 检查本次 JAR，WebStorm `WS-263.7307.202`
+2026-11-14 使用 Plugin Verifier 1.411 检查 1.0.3 版 JAR，WebStorm `WS-263.7307.202`
 和 IntelliJ IDEA `IU-263.7307.200`（均为 2026.3）的结果均为 `Compatible`。
 兼容范围当前声明为 `since-build="213"`（2021.3 起）；其他版本尚未逐一验证。
 每次上传时按商店要求检查 Plugin Verifier 结果，并在目标 IDE 中从磁盘安装 JAR 确认主题效果。

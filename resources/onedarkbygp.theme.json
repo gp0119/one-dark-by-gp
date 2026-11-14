@@ -8,7 +8,7 @@
     "accentColorDark": "#36548b",
     "linkColor": "#82b5f5",
 
-    "editorBackground": "#303841",
+    "editorBackground": "#282f38",
     "panelBackground": "#2b323b",
     "toolWindowBackground": "#2b323b",
     "popupBackground": "#343e49",
@@ -26,6 +26,12 @@
     "foregroundDim": "#a0acbc",
     "foregroundInfo": "#aab4c2",
     "foregroundWhite": "#edf2f7",
+
+    "tool-window-bg-inline": "inputBackground",
+    "icon-disabled": "foregroundDim",
+    "toolbar-selected-bg-active": "accentColor",
+    "toolbar-selected-bg-hovered": "accentColorDark",
+    "icon-over-accent": "foregroundWhite",
 
     "borderColor": "#424d5b",
     "borderColorLight": "#4a5665",
@@ -118,6 +124,7 @@
       "matchForeground": "matchColor"
     },
     "Component": {
+      "focusColor": "#5e7692",
       "errorFocusColor": "errorColor",
       "inactiveErrorFocusColor": "#865965",
       "warningFocusColor": "warningColor",
@@ -129,7 +136,7 @@
     },
     "DefaultTabs": {
       "underlineColor": "linkColor",
-      "inactiveUnderlineColor": "accentColorDark",
+      "inactiveUnderlineColor": "toolbar-selected-bg-hovered",
       "hoverBackground": "hoverBackground",
       "background": "headerBackground"
     },
@@ -150,7 +157,6 @@
     "EditorTabs": {
       "underlinedTabBackground": "selectionBackgroundLight",
       "underlinedTabForeground": "foregroundWhite",
-      "underlinedTabInactiveForeground": "foreground",
       "inactiveUnderlinedTabBackground": "selectionBackgroundInactive",
       "hoverBackground": "hoverBackground",
       "hoverInactiveBackground": "hoverBackground",
@@ -228,7 +234,7 @@
     },
     "Plugins": {
       "background": "panelBackground",
-      "disabledForeground": "foregroundDim",
+      "disabledForeground": "icon-disabled",
       "hoverBackground": "hoverBackground",
       "lightSelectionBackground": "selectionBackgroundLight",
       "tagBackground": "headerBackground",
@@ -326,12 +332,12 @@
       "selectionBackground": "selectionBackground"
     },
     "TextField": {
-      "background": "inputBackground",
+      "background": "tool-window-bg-inline",
       "selectionBackground": "selectionBackground"
     },
     "ToggleButton": {
-      "onForeground": "foregroundWhite",
-      "onBackground": "accentColor",
+      "onForeground": "icon-over-accent",
+      "onBackground": "toolbar-selected-bg-active",
       "offForeground": "foregroundInfo",
       "offBackground": "popupBackground",
       "borderColor": "popupBackground",
