@@ -9,9 +9,9 @@ import shutil
 import subprocess
 from zipfile import ZIP_DEFLATED, ZipFile
 
+from build import RESOURCES, ROOT, webstorm_contents
 
-ROOT = Path(__file__).resolve().parent
-RESOURCES = ROOT / "resources"
+
 SANDBOX = ROOT / ".preview"
 
 
@@ -24,13 +24,18 @@ def build_runtime(contents):
         str(contents / "jbr/Contents/Home/bin/javac"),
         "-proc:none", "-classpath", str(contents / "lib/*"),
         "-d", str(classes), str(ROOT / "preview/PreviewRuntime.java"),
+        *map(str, sorted((ROOT / "src").rglob("*.java"))),
     ], check=True)
     destination = SANDBOX / "plugins/one-dark-preview/lib/runtime.jar"
     destination.parent.mkdir(parents=True, exist_ok=True)
     with ZipFile(destination, "w", ZIP_DEFLATED) as archive:
         archive.writestr("META-INF/plugin.xml", '''<idea-plugin require-restart="true">
   <id>gp.one-dark-preview</id><name>One Dark Preview Runtime</name><version>1</version>
-  <vendor>gp</vendor><depends>com.intellij.modules.platform</depends>
+  <vendor>gp</vendor><depends>com.intellij.modules.lang</depends>
+  <depends>com.intellij.modules.vcs</depends>
+  <extensions defaultExtensionNs="com.intellij">
+    <projectViewNodeDecorator implementation="gp.theme.IgnoredDirectoryDecorator" order="last" />
+  </extensions>
   <applicationListeners>
     <listener class="gp.preview.PreviewRuntime" topic="com.intellij.ide.AppLifecycleListener" />
   </applicationListeners>
@@ -41,7 +46,7 @@ def build_runtime(contents):
 
 def main():
     parser = argparse.ArgumentParser(description="在 WebStorm 中实时预览主题")
-    parser.add_argument("project", nargs="?", type=Path, help="预览项目目录；默认打开内置示例")
+    parser.add_argument("project", nargs="?", type=Path, help="预览项目目录；默认打开欢迎页，由你选择项目")
     parser.add_argument("--theme", choices=["dark", "light"], default="dark", help="预览配色；默认 dark")
     args = parser.parse_args()
     selected_project = args.project
@@ -51,16 +56,8 @@ def main():
         if not selected_project.is_dir():
             parser.error(f"项目目录不存在：{selected_project}")
 
-    if "WEBSTORM_APP" in os.environ:
-        app = Path(os.environ["WEBSTORM_APP"]).expanduser()
-    else:
-        app = next((path for path in [
-            Path.home() / "Applications/WebStorm.app", Path("/Applications/WebStorm.app"),
-        ] if path.exists()), Path("/Applications/WebStorm.app"))
-    contents = app / "Contents"
+    contents = webstorm_contents()
     launcher = contents / "MacOS/webstorm"
-    if not launcher.is_file():
-        raise SystemExit("找不到 WebStorm，请设置 WEBSTORM_APP 为 WebStorm.app 路径。")
 
     SANDBOX.mkdir(exist_ok=True)
     with (SANDBOX / "preview.lock").open("w") as lock:
@@ -78,15 +75,10 @@ def main():
             f'<laf themeId="{"Darcula" if args.theme == "dark" else "IntelliJ"}" /></component></application>'
         )
 
-        project = selected_project if selected_project is not None else SANDBOX / "project"
-        command = [str(launcher), str(project)]
-        if selected_project is None:
-            project.mkdir(exist_ok=True)
-            if not (project / "resources").exists():
-                (project / "resources").symlink_to(RESOURCES, target_is_directory=True)
-            if not (project / "sample.ts").exists():
-                shutil.copyfile(ROOT / "preview/sample.ts", project / "sample.ts")
-            command.extend(["--line", "1", str(project / "sample.ts")])
+        # Keep the welcome screen available even after a previous preview opened a project.
+        command = [str(launcher), "dontReopenProjects"]
+        if selected_project is not None:
+            command.append(str(selected_project))
 
         build_runtime(contents)
         vmoptions = SANDBOX / "webstorm.vmoptions"

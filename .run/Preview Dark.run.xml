@@ -1,0 +1,11 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="预览深色" type="ShConfigurationType">
+    <option name="SCRIPT_PATH" value="$PROJECT_DIR$/preview.command" />
+    <option name="SCRIPT_OPTIONS" value="--theme dark" />
+    <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    <option name="INTERPRETER_PATH" value="/bin/zsh" />
+    <option name="EXECUTE_IN_TERMINAL" value="true" />
+    <option name="EXECUTE_SCRIPT_FILE" value="true" />
+    <method v="2" />
+  </configuration>
+</component>

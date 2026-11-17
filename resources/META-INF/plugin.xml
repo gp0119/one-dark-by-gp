@@ -46,9 +46,11 @@
     <!-- Product and plugin compatibility requirements.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
     <depends>com.intellij.modules.lang</depends>
+    <depends>com.intellij.modules.vcs</depends>
 
     <extensions defaultExtensionNs="com.intellij">
         <themeProvider id="one-dark-by-gp" path="/onedarkbygp.theme.json"/>
         <themeProvider id="one-light-by-gp" path="/onelightbygp.theme.json"/>
+        <projectViewNodeDecorator implementation="gp.theme.IgnoredDirectoryDecorator" order="last"/>
     </extensions>
 </idea-plugin>

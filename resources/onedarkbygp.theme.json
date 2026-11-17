@@ -50,6 +50,7 @@
   },
   "ui": {
     "Islands": 1,
+    "OneDarkByGP.dimIgnoredDirectories": true,
     "*": {
       "background": "panelBackground",
       "foreground": "foreground",
@@ -169,7 +170,7 @@
       "inactiveUnderlineColor": "transparent"
     },
     "FileColor": {
-      "Yellow": "#313237",
+      "Yellow": "panelBackground",
       "Green": "#293a24",
       "Blue": "#24354f",
       "Violet": "#2d1942",

@@ -33,6 +33,18 @@ JetBrains IDE 主题插件，提供 One Dark 和 One Light 两套配色。
 
 UI 配置为 `resources/onelightbygp.theme.json`，编辑器方案为 `resources/onelightbygp.xml`，以 JetBrains 的 `Default` 浅色方案为基础。
 
+## IDE 一键预览与打包
+
+在 IntelliJ IDEA 或 WebStorm 中打开本项目，顶部运行配置下拉框会读取 `.run/` 中的共享配置。选中后点击旁边的 ▶：
+
+| 运行配置 | 操作 |
+| --- | --- |
+| 预览深色 | 打开深色主题的 WebStorm 欢迎页，自行选择项目后实时预览 |
+| 预览浅色 | 打开浅色主题的 WebStorm 欢迎页，自行选择项目后实时预览 |
+| 打包插件 | 编译项目树扩展，将代码、主题资源和 LICENSE 打包到根目录 `one-dark-by-gp.jar`，覆盖原 JAR |
+
+这些配置使用 IDE 自带的 Shell Script 插件；预览和打包需要 Python 3、WebStorm 及其自带的 JDK。预览在 IDE 终端中运行，按 `Ctrl+C` 停止；切换深浅色前先停止当前预览。配置参数可在 **Run → Edit Configurations…** 中修改。
+
 ## 在 WebStorm 中自动预览（macOS）
 
 适用于 macOS 上的 WebStorm 2026.3，需要 Python 3；无须安装额外依赖或 Plugin DevKit。
@@ -49,9 +61,9 @@ UI 配置为 `resources/onelightbygp.theme.json`，编辑器方案为 `resources
 ./preview.command --theme light
 ```
 
-也可以在 Finder 中双击 `preview.command`。脚本会启动独立的 WebStorm 预览窗口，首次启动时按提示完成授权和项目信任。
+也可以在 Finder 中双击 `preview.command`。脚本会启动独立的 WebStorm 欢迎页，点击 **Open** 或最近项目即可选择要预览的项目；不会自动恢复上次打开的项目。首次启动时按提示完成授权，打开项目时按提示确认信任。
 
-要用自己的项目查看主题，先退出已有预览实例，再传入项目目录：
+也可以直接指定项目，先退出已有预览实例，再传入项目目录：
 
 ```bash
 ./preview.command "/你的项目路径"
@@ -59,11 +71,13 @@ UI 配置为 `resources/onelightbygp.theme.json`，编辑器方案为 `resources
 
 浅色主题也可以传入项目目录：`./preview.command --theme light "/你的项目路径"`。
 
-不传目录时打开内置示例。预览窗口运行期间也可以通过 **File → Open** 在当前窗口打开其他项目。无论打开哪个项目，自动预览始终监听本仓库 `resources` 下的主题 JSON 和编辑器 XML；指定项目中不会被创建示例文件或资源链接。
+不传目录时停留在欢迎页，等待你选择项目。预览窗口运行期间也可以通过 **File → Open** 在当前窗口打开其他项目。无论打开哪个项目，自动预览始终监听本仓库 `resources` 下的主题 JSON 和编辑器 XML；指定项目中不会被创建示例文件或资源链接。
 
-在预览窗口的 `resources` 目录中编辑主题 JSON 或编辑器 XML 并保存，约 0.5 秒后界面和代码区一起刷新，无须点击 Preview Theme、重新导入配色或切换窗口。也可以在其他编辑器中修改并保存这些文件，预览窗口同样会更新。`sample.ts` 用于查看语法高亮；`resources` 指向仓库原文件，保存的修改会直接写回本项目。
+在本仓库的 `resources` 目录中编辑主题 JSON 或编辑器 XML 并保存，约 0.5 秒后预览界面和代码区一起刷新，无须点击 Preview Theme、重新导入配色或切换窗口。也可以在其他编辑器中修改并保存这些文件，预览窗口同样会更新。需要语法高亮示例时，可自行打开仓库中的 `preview/sample.ts`。
 
 编辑器背景由所选主题 XML 的 `TEXT` → `BACKGROUND` 控制；界面颜色由对应的 `.theme.json` 控制。只改 JSON 中的 `editorBackground` 不会修改 XML 中的代码背景。
+
+深色主题按版本控制的忽略状态淡化目录图标，使用对应的文字颜色，并保留现有图标形状；普通目录不受影响。Git 忽略和 `.ignore` 插件的忽略状态均支持。项目树扩展在预览启动时编译加载，修改 `src` 中的代码后需要重启预览；配色仍可实时刷新。
 
 预览配置、缓存和编译结果都保存在被 Git 忽略的 `.preview/` 中。退出预览 WebStorm（`⌘Q`），或在启动脚本的终端按 `Ctrl+C` 即可停止。JSON/XML 格式错误时保留上次有效预览；修正并保存后会继续更新。详细日志位于 `.preview/log/idea.log`。
 
@@ -86,10 +100,10 @@ WEBSTORM_APP="/你的路径/WebStorm.app" ./preview.command
 
 ```bash
 cd /path/to/one-dark-by-gp
-jar -cfM one-dark-by-gp.jar -C resources . -C . LICENSE
+python3 build.py
 ```
 
-JAR 中包含主题资源和 MIT 许可证；预览加载器及商店截图不会打入插件。
+脚本复用预览的 WebStorm 查找规则，可通过 `WEBSTORM_APP` 指定安装位置。JAR 中包含项目树扩展、主题资源和 MIT 许可证；预览加载器及商店截图不会打入插件。编译和打包使用临时目录，结束后自动清理。
 
 ## 发布到 JetBrains Marketplace
 
@@ -451,6 +465,9 @@ one-dark-by-gp/
 │   ├── onelightbygp.theme.json # 浅色 UI 主题配置
 │   └── onelightbygp.xml        # 浅色编辑器配色方案
 ├── one-dark-by-gp.jar          # 打包后的插件
+├── build.py                   # 编译项目树扩展并打包插件
+├── src/gp/theme/
+│   └── IgnoredDirectoryDecorator.java # 按忽略状态淡化目录图标
 ├── preview.command            # 双击或命令行启动 WebStorm 自动预览
 ├── preview.py                 # 编译预览加载器并启动独立实例
 ├── preview/
