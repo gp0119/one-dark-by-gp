@@ -8,5 +8,14 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library name="IntelliJ Platform VCS">
+        <CLASSES>
+          <root url="jar://$APPLICATION_HOME_DIR$/plugins/platform-vcs-plugin/lib/modules/intellij.platform.vcs.impl.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

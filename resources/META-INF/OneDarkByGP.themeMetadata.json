@@ -1,0 +1,11 @@
+{
+  "name": "One Dark by GP",
+  "fixed": true,
+  "ui": [
+    {
+      "key": "OneDarkByGP.dimIgnoredDirectories",
+      "description": "Tint ignored directory icons with their version-control status color.",
+      "source": "gp.theme.IgnoredDirectoryDecorator"
+    }
+  ]
+}

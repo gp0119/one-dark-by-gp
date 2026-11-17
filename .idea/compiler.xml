@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavacSettings">
+    <!-- The IDEA SDK home differs from its JDK home, so IDEA 2026.3 needs an explicit Swing module. -->
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="one-dark-by-gp" options="--add-modules java.desktop" />
+    </option>
+  </component>
+</project>

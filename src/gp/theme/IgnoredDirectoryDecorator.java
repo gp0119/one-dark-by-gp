@@ -8,10 +8,11 @@ import com.intellij.openapi.vcs.FileStatus;
 import com.intellij.openapi.vcs.FileStatusManager;
 import com.intellij.util.IconUtil;
 import javax.swing.UIManager;
+import org.jetbrains.annotations.NotNull;
 
 public final class IgnoredDirectoryDecorator implements ProjectViewNodeDecorator, DumbAware {
     @Override
-    public void decorate(ProjectViewNode<?> node, PresentationData presentation) {
+    public void decorate(@NotNull ProjectViewNode<?> node, @NotNull PresentationData presentation) {
         if (!UIManager.getBoolean("OneDarkByGP.dimIgnoredDirectories")) {
             return;
         }
@@ -28,9 +29,10 @@ public final class IgnoredDirectoryDecorator implements ProjectViewNodeDecorator
         }
 
         var icon = presentation.getIcon(false);
-        if (icon != null) {
+        var color = status.getColor();
+        if (icon != null && color != null) {
             // Tint the existing icon so icon plugins and folder badges keep their shapes.
-            presentation.setIcon(IconUtil.colorize(icon, status.getColor()));
+            presentation.setIcon(IconUtil.colorize(icon, color));
         }
     }
 }

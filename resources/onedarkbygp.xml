@@ -23,14 +23,14 @@
     <option name="FILESTATUS_DELETED" value="f77669" />
     <option name="FILESTATUS_HIJACKED" value="ffcb6b" />
     <option name="FILESTATUS_IDEA_FILESTATUS_DELETED_FROM_FILE_SYSTEM" value="808080" />
-    <option name="FILESTATUS_IDEA_FILESTATUS_IGNORED" value="788391" />
+    <option name="FILESTATUS_IDEA_FILESTATUS_IGNORED" value="8c8176" />
     <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_BOTH_CONFLICTS" value="fc9867" />
     <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_CONFLICTS" value="fc9867" />
     <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_PROPERTY_CONFLICTS" value="fc9867" />
     <option name="FILESTATUS_IDEA_SVN_FILESTATUS_EXTERNAL" value="c3e88d" />
     <option name="FILESTATUS_IDEA_SVN_FILESTATUS_OBSTRUCTED" value="727238" />
     <option name="FILESTATUS_IDEA_SVN_REPLACED" value="c3e88d" />
-    <option name="FILESTATUS_IGNORE.PROJECT_VIEW.IGNORED" value="788391" />
+    <option name="FILESTATUS_IGNORE.PROJECT_VIEW.IGNORED" value="8c8176" />
     <option name="FILESTATUS_MERGED" value="c792ea" />
     <option name="FILESTATUS_MODIFIED" value="80cbc4" />
     <option name="FILESTATUS_NOT_CHANGED_IMMEDIATE" value="80cbc4" />
@@ -54,8 +54,8 @@
     <option name="MODIFIED_TAB_ICON" value="82b5f5" />
     <option name="MT_ADDED" value="73c990" />
     <option name="MT_DELETED" value="ff6347" />
-    <option name="MT_IDEA_FILESTATUS_IGNORED" value="788391" />
-    <option name="MT_IGNORE.PROJECT_VIEW.IGNORED" value="788391" />
+    <option name="MT_IDEA_FILESTATUS_IGNORED" value="8c8176" />
+    <option name="MT_IGNORE.PROJECT_VIEW.IGNORED" value="8c8176" />
     <option name="MT_MODIFIED" value="e2c08d" />
     <option name="MT_RENAMED" value="6494ed" />
     <option name="MT_SUPPRESSED" value="abb2bf" />

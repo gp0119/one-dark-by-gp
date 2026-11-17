@@ -1,4 +1,6 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<!-- The legacy VCS dependency implies backend targeting and preserves compatibility with IDEs since 2021.3. -->
+<!--suppress SplitModeImplicitModuleKind -->
 <idea-plugin url="https://github.com/gp0119/one-dark-by-gp">
     <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
     <id>one-dark-by-gp</id>
@@ -51,6 +53,7 @@
     <extensions defaultExtensionNs="com.intellij">
         <themeProvider id="one-dark-by-gp" path="/onedarkbygp.theme.json"/>
         <themeProvider id="one-light-by-gp" path="/onelightbygp.theme.json"/>
+        <themeMetadataProvider path="/META-INF/OneDarkByGP.themeMetadata.json"/>
         <projectViewNodeDecorator implementation="gp.theme.IgnoredDirectoryDecorator" order="last"/>
     </extensions>
 </idea-plugin>
