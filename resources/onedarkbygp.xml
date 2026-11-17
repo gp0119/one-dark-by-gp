@@ -7,9 +7,6 @@
     <property name="modified">2023-03-29T13:44:45</property>
     <property name="originalScheme">_@user_one dark by gp</property>
   </metaInfo>
-  <option name="CONSOLE_FONT_NAME" value="Inconsolata-g" />
-  <option name="CONSOLE_FONT_SIZE" value="15" />
-  <option name="CONSOLE_LINE_SPACING" value="1.3" />
   <colors>
     <option name="ADDED_LINES_COLOR" value="98c379" />
     <option name="ANNOTATIONS_COLOR" value="fffbf7" />

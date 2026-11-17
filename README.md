@@ -327,7 +327,7 @@ Plugin Verifier 检查二进制兼容性，不能替代对配色和界面效果�
   "foreground": "foregroundInfo",      // 普通文字颜色（#aab4c2）
   "selectionBackground": "...",        // 选中文件背景
   "modifiedItemForeground": "...",     // 修改过的文件颜色
-  "rowHeight": 20.0                    // 行高
+  "rowHeight": 20                      // 行高，使用整数
 }
 ```
 
@@ -411,29 +411,28 @@ Plugin Verifier 检查二进制兼容性，不能替代对配色和界面效果�
 
 | 属性                      | 说明                         |
 | ------------------------- | ---------------------------- |
-| `EDITOR_BACKGROUND_COLOR` | 编辑器背景（不带#）          |
-| `TEXT.BACKGROUND`         | 文本背景（需与上面保持一致） |
+| `TEXT.BACKGROUND`         | 编辑器背景（不带#）          |
 | `CARET_COLOR`             | 光标颜色                     |
 | `CARET_ROW_COLOR`         | 当前行高亮                   |
 | `SELECTION_BACKGROUND`    | 选中文字背景                 |
 | `LINE_NUMBERS_COLOR`      | 行号颜色                     |
 | `GUTTER_BACKGROUND`       | 行号区域背景                 |
+| `CONSOLE_BACKGROUND_KEY`  | 控制台背景                   |
+| `CONSOLE_OUTPUT.BACKGROUND` | 控制台输出背景             |
 
 ### 修改编辑器背景
 
-需要同时修改两处：
+在所选主题 XML 的 `attributes` → `TEXT` 中修改 `BACKGROUND`，保留该节点的其他属性：
 
 ```xml
-<!-- 第14行 -->
-<option name="EDITOR_BACKGROUND_COLOR" value="你的颜色" />
-
-<!-- 约第3747行 -->
 <option name="TEXT">
   <value>
     <option name="BACKGROUND" value="你的颜色" />
   </value>
 </option>
 ```
+
+需要让行号区、控制台和界面背景同步时，同时调整 XML 中 `colors` 下的 `GUTTER_BACKGROUND`、`CONSOLE_BACKGROUND_KEY`，`attributes` → `CONSOLE_OUTPUT` 下的 `BACKGROUND`，以及对应主题 JSON 的 `colors.editorBackground`。
 
 ⚠️ **注意**：XML 中的颜色值不带 `#` 号！
 

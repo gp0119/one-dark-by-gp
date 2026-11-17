@@ -370,7 +370,7 @@
       "hoverInactiveBackground": "hoverBackground",
       "selectionBackground": "selectionBackground",
       "modifiedItemForeground": "linkColor",
-      "rowHeight": 20.0
+      "rowHeight": 20
     },
     "ValidationTooltip": {
       "errorBackground": "errorBackground",
