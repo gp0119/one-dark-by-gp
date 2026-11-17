@@ -42,7 +42,10 @@ def build_runtime(contents):
 def main():
     parser = argparse.ArgumentParser(description="在 WebStorm 中实时预览主题")
     parser.add_argument("project", nargs="?", type=Path, help="预览项目目录；默认打开内置示例")
-    selected_project = parser.parse_args().project
+    parser.add_argument("--theme", choices=["dark", "light"], default="dark", help="预览配色；默认 dark")
+    args = parser.parse_args()
+    selected_project = args.project
+    theme_name = f"one{args.theme}bygp"
     if selected_project is not None:
         selected_project = selected_project.expanduser().resolve()
         if not selected_project.is_dir():
@@ -72,7 +75,7 @@ def main():
         # The source-backed preview theme is created after startup, so boot with a bundled theme.
         (options / "laf.xml").write_text(
             '<application><component name="LafManager">'
-            '<laf themeId="Darcula" /></component></application>'
+            f'<laf themeId="{"Darcula" if args.theme == "dark" else "IntelliJ"}" /></component></application>'
         )
 
         project = selected_project if selected_project is not None else SANDBOX / "project"
@@ -94,6 +97,7 @@ def main():
                 f"-Didea.plugins.path={SANDBOX / 'plugins'}",
                 f"-Didea.log.path={SANDBOX / 'log'}",
                 f"-Done.dark.preview.resources={RESOURCES}",
+                f"-Done.dark.preview.theme={theme_name}",
                 "-Didea.initially.ask.config=false",
                 f"-XX:ErrorFile={SANDBOX / 'log/java_error_%p.log'}",
                 f"-XX:HeapDumpPath={SANDBOX / 'log'}",

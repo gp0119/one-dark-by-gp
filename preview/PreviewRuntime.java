@@ -33,10 +33,11 @@ public final class PreviewRuntime implements AppLifecycleListener {
     public void appStarted() {
         var app = ApplicationManager.getApplication();
         var resources = Path.of(System.getProperty("one.dark.preview.resources"));
+        var themeName = System.getProperty("one.dark.preview.theme");
         var refresh = AppExecutorUtil.getAppScheduledExecutorService().scheduleWithFixedDelay(() -> {
             try {
-                var theme = Files.readAllBytes(resources.resolve("onedarkbygp.theme.json"));
-                var scheme = Files.readAllBytes(resources.resolve("onedarkbygp.xml"));
+                var theme = Files.readAllBytes(resources.resolve(themeName + ".theme.json"));
+                var scheme = Files.readAllBytes(resources.resolve(themeName + ".xml"));
                 if (Arrays.equals(theme, previousTheme) && Arrays.equals(scheme, previousScheme)) {
                     return;
                 }
@@ -53,10 +54,12 @@ public final class PreviewRuntime implements AppLifecycleListener {
 
     private static void applyTheme(byte[] themeSource, byte[] schemeSource) {
         var colors = EditorColorsManager.getInstance();
-        var scheme = new EditorColorsSchemeImpl(colors.getScheme("Darcula"));
+        final EditorColorsSchemeImpl scheme;
         final UITheme theme;
         try {
-            scheme.readExternal(JDOMUtil.load(new ByteArrayInputStream(schemeSource)));
+            var schemeElement = JDOMUtil.load(new ByteArrayInputStream(schemeSource));
+            scheme = new EditorColorsSchemeImpl(colors.getScheme(schemeElement.getAttributeValue("parent_scheme")));
+            scheme.readExternal(schemeElement);
             var json = JsonParser.parseString(new String(themeSource, StandardCharsets.UTF_8)).getAsJsonObject();
             json.addProperty("editorScheme", scheme.getName());
             theme = UITheme.Companion.loadTempThemeFromJson(

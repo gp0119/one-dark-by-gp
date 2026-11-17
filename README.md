@@ -1,6 +1,37 @@
 # One Dark by GP
 
-JetBrains IDE 主题插件
+JetBrains IDE 主题插件，提供 One Dark 和 One Light 两套配色。
+
+## One Light by GP
+
+浅色主题使用同一暖白色系的编辑区和侧栏，以轻微明暗差区分区域，搭配蓝色强调。代码颜色沿用当前 dark 主题的分类，调整明度以适应浅色背景；选中区域保留深色文字。
+
+| 用途 | 配色 |
+| --- | --- |
+| 编辑器 / 侧栏 / 标题栏 | `#FCFAF6` / `#FAF7F1` / `#F8F5EF` |
+| 正文 / 次要文字 | `#374151` / `#5B6575` |
+| 主按钮 / 选中背景 | `#3566AD` / `#D5E3F7` |
+| 局部变量 | 红色 `#B2384B` |
+| 函数参数（通用 / JS / TS） | 粉色 `#A02A73` |
+| 实例成员属性 | 蓝灰色 `#426A94` |
+| 全局 / 导出变量、类声明 | 偏黄的亮金色 `#9B6A00` |
+| 静态成员（通用 / JS / TS） | 灰蓝色 `#536375` |
+| 常量、组件 / 自定义标签 | 珊瑚橙 `#B83B10` |
+| 关键字 / 通用类型引用 | 紫色 `#8A36B3` |
+| 函数 / 方法 | 蓝色 `#0063B5` |
+| 接口 / 抽象类 / 字符串 | 绿色 `#467225` |
+| 数字 / Python 参数 | 棕橙色 `#9C4F1C` |
+| TypeScript 基本类型 | 橙色 `#A34A22` |
+| JSON 键 | 淡紫色 `#8847A8` |
+| 注释 | `#677180` |
+
+金黄色符号和组件使用偏黄的亮金色、珊瑚橙，保持现有分类及原有字重。`value:` 等内联提示使用深蓝灰文字和浅蓝灰底色，与后面的代码实参区分；同时配置通用类型提示和参数提示，以覆盖 IDE 的不同提示绘制方式。
+
+分类以 `resources/onedarkbygp.xml` 为准，保留声明与引用、静态与实例及语言专属类别的差异。例如 Java 静态方法保留金黄色，Java 枚举常量保留淡紫色，TypeScript 类型参数保留金黄色；注释、代码片段等的字体样式也与 dark 对齐。
+
+变量类别由 IDE 的语言分析决定，JS/TS 的 `const` 仍按局部或全局作用域着色。本方案默认关闭 JS/TS 的彩虹着色，避免按变量名分配的颜色覆盖角色配色。
+
+UI 配置为 `resources/onelightbygp.theme.json`，编辑器方案为 `resources/onelightbygp.xml`，以 JetBrains 的 `Default` 浅色方案为基础。
 
 ## 在 WebStorm 中自动预览（macOS）
 
@@ -12,6 +43,12 @@ JetBrains IDE 主题插件
 ./preview.command
 ```
 
+预览浅色主题：
+
+```bash
+./preview.command --theme light
+```
+
 也可以在 Finder 中双击 `preview.command`。脚本会启动独立的 WebStorm 预览窗口，首次启动时按提示完成授权和项目信任。
 
 要用自己的项目查看主题，先退出已有预览实例，再传入项目目录：
@@ -20,11 +57,13 @@ JetBrains IDE 主题插件
 ./preview.command "/你的项目路径"
 ```
 
+浅色主题也可以传入项目目录：`./preview.command --theme light "/你的项目路径"`。
+
 不传目录时打开内置示例。预览窗口运行期间也可以通过 **File → Open** 在当前窗口打开其他项目。无论打开哪个项目，自动预览始终监听本仓库 `resources` 下的主题 JSON 和编辑器 XML；指定项目中不会被创建示例文件或资源链接。
 
 在预览窗口的 `resources` 目录中编辑主题 JSON 或编辑器 XML 并保存，约 0.5 秒后界面和代码区一起刷新，无须点击 Preview Theme、重新导入配色或切换窗口。也可以在其他编辑器中修改并保存这些文件，预览窗口同样会更新。`sample.ts` 用于查看语法高亮；`resources` 指向仓库原文件，保存的修改会直接写回本项目。
 
-编辑器背景由 `onedarkbygp.xml` 的 `TEXT` → `BACKGROUND` 控制；界面颜色由 `onedarkbygp.theme.json` 控制。只改 JSON 中的 `editorBackground` 不会修改 XML 中的代码背景。
+编辑器背景由所选主题 XML 的 `TEXT` → `BACKGROUND` 控制；界面颜色由对应的 `.theme.json` 控制。只改 JSON 中的 `editorBackground` 不会修改 XML 中的代码背景。
 
 预览配置、缓存和编译结果都保存在被 Git 忽略的 `.preview/` 中。退出预览 WebStorm（`⌘Q`），或在启动脚本的终端按 `Ctrl+C` 即可停止。JSON/XML 格式错误时保留上次有效预览；修正并保存后会继续更新。详细日志位于 `.preview/log/idea.log`。
 
@@ -41,7 +80,7 @@ WEBSTORM_APP="/你的路径/WebStorm.app" ./preview.command
 1. 下载 `one-dark-by-gp.jar`
 2. 打开 IDE → Settings → Plugins → ⚙️ → Install Plugin from Disk...
 3. 选择 JAR 文件 → 重启 IDE
-4. Settings → Appearance → Theme → 选择 "one dark by gp"
+4. Settings → Appearance → Theme → 选择 "one dark by gp" 或 "one light by gp"
 
 ## 打包命令
 
@@ -285,6 +324,7 @@ Plugin Verifier 检查二进制兼容性，不能替代对配色和界面效果�
 
 ```json
 "Tree": {
+  "foreground": "foregroundInfo",      // 普通文字颜色（#aab4c2）
   "selectionBackground": "...",        // 选中文件背景
   "modifiedItemForeground": "...",     // 修改过的文件颜色
   "rowHeight": 20.0                    // 行高
@@ -407,8 +447,10 @@ one-dark-by-gp/
 │   ├── META-INF/
 │   │   ├── plugin.xml          # 插件配置
 │   │   └── pluginIcon.svg      # 插件图标
-│   ├── onedarkbygp.theme.json  # UI 主题配置
-│   └── onedarkbygp.xml         # 编辑器配色方案
+│   ├── onedarkbygp.theme.json  # 深色 UI 主题配置
+│   ├── onedarkbygp.xml         # 深色编辑器配色方案
+│   ├── onelightbygp.theme.json # 浅色 UI 主题配置
+│   └── onelightbygp.xml        # 浅色编辑器配色方案
 ├── one-dark-by-gp.jar          # 打包后的插件
 ├── preview.command            # 双击或命令行启动 WebStorm 自动预览
 ├── preview.py                 # 编译预览加载器并启动独立实例

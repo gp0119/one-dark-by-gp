@@ -371,6 +371,7 @@
       "inactiveInfoForeground": "foregroundDim"
     },
     "Tree": {
+      "foreground": "foregroundInfo",
       "hoverBackground": "hoverBackground",
       "hoverInactiveBackground": "hoverBackground",
       "selectionBackground": "selectionBackground",

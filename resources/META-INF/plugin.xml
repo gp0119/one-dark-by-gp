@@ -18,14 +18,15 @@
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <description><![CDATA[
-    <p>A dark theme with blue-gray surfaces and One Dark-inspired syntax colors for JetBrains IDEs.</p>
+    <p>Dark and light themes with blue-gray surfaces and One Dark-inspired syntax colors for JetBrains IDEs.</p>
     <ul>
         <li>Coordinated colors for the editor, project tree, tool windows, tabs, and popups.</li>
         <li>Blue accents with green strings, warm yellow highlights, and muted comments.</li>
         <li>A bundled editor color scheme that is applied together with the UI theme.</li>
+        <li>One Light by GP pairs coordinated warm-white editor and panel surfaces with vivid colors for variable roles.</li>
     </ul>
     <p>After installation, open Settings &gt; Appearance &amp; Behavior &gt; Appearance
-    and select <b>one dark by gp</b>.</p>
+    and select <b>one dark by gp</b> or <b>one light by gp</b>.</p>
     <p><a href="https://github.com/gp0119/one-dark-by-gp">Source code</a> |
     <a href="https://github.com/gp0119/one-dark-by-gp/issues">Report an issue</a> |
     <a href="https://github.com/gp0119/one-dark-by-gp/blob/master/LICENSE">MIT License</a></p>
@@ -35,6 +36,7 @@
          Displayed on the Plugin Page and IDE Plugin Manager. Simple HTML elements can be included between <![CDATA[  ]]> tags. -->
     <change-notes><![CDATA[
     <ul>
+        <li>Added One Light by GP with coordinated UI, editor, console, and diff colors.</li>
         <li>Softened the agent prompt focus outline to a muted blue-gray while keeping borders visible.</li>
         <li>Darkened editor and agent prompt backgrounds and refined send button colors.</li>
         <li>Removed the project icon override to preserve compatibility with icon plugins.</li>
@@ -47,5 +49,6 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <themeProvider id="one-dark-by-gp" path="/onedarkbygp.theme.json"/>
+        <themeProvider id="one-light-by-gp" path="/onelightbygp.theme.json"/>
     </extensions>
 </idea-plugin>
