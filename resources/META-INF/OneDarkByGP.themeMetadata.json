@@ -14,6 +14,10 @@
     {
       "key": "VersionControl.FileStatus.IGNORE.PROJECT_VIEW.IGNORED",
       "description": "Text and directory icon color for files ignored by the .ignore plugin."
+    },
+    {
+      "key": "VersionControl.FileStatus.SUPPRESSED",
+      "description": "Text color for non-VCS virtual files, including agent conversation tabs and scratch files."
     }
   ]
 }

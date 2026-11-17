@@ -388,7 +388,8 @@
     "VersionControl": {
       "FileStatus": {
         "IDEA_FILESTATUS_IGNORED": "#8c8176",
-        "IGNORE.PROJECT_VIEW.IGNORED": "#8c8176"
+        "IGNORE.PROJECT_VIEW.IGNORED": "#8c8176",
+        "SUPPRESSED": "#a7dbd8"
       },
       "Log.Commit": {
         "currentBranchBackground": "selectionBackgroundLight",

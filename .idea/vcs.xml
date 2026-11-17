@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AgentCommitMessageProject"><![CDATA[{
+  "mode": "CUSTOM",
+  "instruction": "根据当前 Git diff 生成准确、简洁的中文提交信息。\n\n要求：\n1. 严格采用 Conventional Commits 格式：\n   <type>(<scope>): <description>\n2. type 只能使用 feat、fix、refactor、perf、\n   style、docs、test、build、chore、ci。\n3. scope 根据修改的模块确定，无法判断时省略。\n4. description 使用简体中文，尽量不超过 30 个汉字。\n5. 根据实际代码变更总结目的，不要简单罗列文件名。\n6. 涉及多个重要修改时，标题下空一行，\n   使用 - 列出具体变更。\n7. 不要臆测不存在的功能、问题或测试结果。\n8. 只输出最终提交信息，不要附加解释。"
+}]]></component>
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
   </component>
