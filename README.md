@@ -79,6 +79,8 @@ UI 配置为 `resources/onelightbygp.theme.json`，编辑器方案为 `resources
 
 深色主题按版本控制的忽略状态淡化目录图标，使用对应的文字颜色，并保留现有图标形状；普通目录不受影响。Git 忽略和 `.ignore` 插件的忽略状态均支持。项目树扩展在预览启动时编译加载，修改 `src` 中的代码后需要重启预览；配色仍可实时刷新。
 
+忽略项颜色由深色主题 JSON 的 `ui.VersionControl.FileStatus` 中两个状态键直接指定，优先于旧的用户配色副本，避免 Settings Sync 同步旧值后覆盖主题颜色。这里使用十六进制色值，因为 DevKit 不识别文件状态键下的命名颜色引用。调整时同步修改 XML 中的忽略色，以保持兼容。
+
 预览配置、缓存和编译结果都保存在被 Git 忽略的 `.preview/` 中。退出预览 WebStorm（`⌘Q`），或在启动脚本的终端按 `Ctrl+C` 即可停止。JSON/XML 格式错误时保留上次有效预览；修正并保存后会继续更新。详细日志位于 `.preview/log/idea.log`。
 
 脚本自动寻找 `~/Applications/WebStorm.app` 或 `/Applications/WebStorm.app`。安装在其他位置时指定：

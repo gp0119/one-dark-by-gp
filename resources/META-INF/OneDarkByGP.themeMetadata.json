@@ -6,6 +6,14 @@
       "key": "OneDarkByGP.dimIgnoredDirectories",
       "description": "Tint ignored directory icons with their version-control status color.",
       "source": "gp.theme.IgnoredDirectoryDecorator"
+    },
+    {
+      "key": "VersionControl.FileStatus.IDEA_FILESTATUS_IGNORED",
+      "description": "Text and directory icon color for files ignored by version control."
+    },
+    {
+      "key": "VersionControl.FileStatus.IGNORE.PROJECT_VIEW.IGNORED",
+      "description": "Text and directory icon color for files ignored by the .ignore plugin."
     }
   ]
 }

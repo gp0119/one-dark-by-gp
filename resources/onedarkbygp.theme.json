@@ -386,6 +386,10 @@
       "warningBorderColor": "#8c7956"
     },
     "VersionControl": {
+      "FileStatus": {
+        "IDEA_FILESTATUS_IGNORED": "#8c8176",
+        "IGNORE.PROJECT_VIEW.IGNORED": "#8c8176"
+      },
       "Log.Commit": {
         "currentBranchBackground": "selectionBackgroundLight",
         "hoveredBackground": "hoverBackground",
